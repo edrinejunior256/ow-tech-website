@@ -1,17 +1,13 @@
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
+import SiteHeader from "./components/SiteHeader";
+import SiteFooter from "./components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "OW Tech | Digital Solutions & Innovation",
+  title: "OW Technologies | Digital Solutions & Innovation",
   description:
-    "OW Tech provides computer services, web development and innovative digital solutions.",
+    "OW Technologies builds practical digital solutions through custom software, web applications, business automation and digital transformation.",
 };
 
 export default function RootLayout({
@@ -21,8 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body>
+        <SiteHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

@@ -1,189 +1,149 @@
 
-import Image from "next/image";
+import type { ReactNode } from "react";
 
 const services = [
+  ["01", "Custom Software Development", "Systems built around how your organisation actually runs, for processes no off-the-shelf package fits."],
+  ["02", "Web Application Development", "Portals, dashboards and internal tools that staff and customers can rely on every working day."],
+  ["03", "Website Design and Development", "Fast, credible websites that make your business easy to understand, trust and contact."],
+  ["04", "Business Automation", "Removing manual steps in payments, records, reporting and approvals that cost hours every week."],
+  ["05", "IT Consulting and Technology Solutions", "Independent guidance on what to build, what to buy and what to improve."],
+  ["06", "Digital Transformation", "Moving paper-based and spreadsheet-bound operations onto systems your organisation can use."],
+];
+
+const reasons = [
+  ["01", "Innovative Thinking", "We start from your problem and find the most practical way to solve it."],
+  ["02", "Modern Technologies", "We use current, well-supported technologies to build maintainable solutions."],
+  ["03", "Client-Focused Solutions", "Every system is shaped around how your organisation and team actually work."],
+  ["04", "Reliable Development", "Clear milestones, tested releases and documentation make progress visible."],
+  ["05", "Scalable Digital Products", "Our solutions accommodate more users, records and operations as you grow."],
+  ["06", "Commitment to Quality", "We focus on dependable work and the support needed after launch."],
+];
+
+const projects = [
   {
     number: "01",
-    title: "Web Development",
-    description:
-      "Modern, responsive websites and web applications designed to help businesses grow.",
-    icon: "◈",
+    name: "ReportSphere",
+    category: "EDUCATION TECHNOLOGY",
+    description: "A school report management system that transforms term marks into organised, verified report cards and simplifies academic reporting.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=85",
+    tags: ["Education", "Report Management"],
   },
   {
     number: "02",
-    title: "Computer Services",
-    description:
-      "Professional computer support, software installation and digital assistance.",
-    icon: "⌘",
+    name: "Offline Ordering Platform",
+    category: "BUSINESS AUTOMATION",
+    description: "A proposed ordering solution for distribution teams that synchronises orders when an internet connection returns.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85",
+    tags: ["Distribution", "Automation"],
   },
   {
     number: "03",
-    title: "Printing & Digital Support",
-    description:
-      "Document preparation, printing solutions and everyday digital services.",
-    icon: "▤",
-  },
-  {
-    number: "04",
-    title: "Software Solutions",
-    description:
-      "Custom digital systems that simplify processes and improve productivity.",
-    icon: "⌬",
+    name: "Client Management Portal",
+    category: "CUSTOM SOFTWARE",
+    description: "A proposed platform for managing client engagements, documents and approvals while reducing repetitive administrative work.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85",
+    tags: ["Professional Services", "Custom Software"],
   },
 ];
 
-const navigation = [
-  ["Home", "#home"],
-  ["About", "#about"],
-  ["Services", "#services"],
-  ["Projects", "#projects"],
-  ["Contact", "#contact"],
+const industries = [
+  ["01", "Education", "Records, reporting, fees and timetables for schools that have outgrown paper registers and shared spreadsheets."],
+  ["02", "Business and Enterprise", "Operations, approvals and reporting for organisations that need capable digital tools."],
+  ["03", "Retail and Commerce", "Stock, ordering and sales solutions across shops, warehouses and field teams."],
+  ["04", "Professional Services", "Client portals and internal systems for dependable document and workflow management."],
+  ["05", "Startups and Entrepreneurs", "Digital products that help new ideas become practical, scalable businesses."],
 ];
+
+const process = [
+  ["01", "Discover", "We listen, ask questions and understand your organisation, challenges and goals."],
+  ["02", "Plan", "We define the scope, technical direction, timeline and deliverables."],
+  ["03", "Build", "We develop, test and demonstrate the solution while keeping you informed."],
+  ["04", "Deliver", "We launch the solution, provide documentation and hand over the tools your team needs."],
+];
+
+function SectionLabel({ children }: { children: ReactNode }) {
+  return (
+    <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-[#64748B]">
+      {children}
+    </p>
+  );
+}
+
+
+const primaryButton =
+  "inline-flex items-center justify-center rounded-full bg-[#2563EB] px-7 py-3.5 text-sm font-bold text-white shadow-md transition-all hover:bg-[#1746B5] hover:shadow-lg";
+
+const secondaryButton =
+  "inline-flex items-center justify-center rounded-full border-2 border-[#102A4C] bg-white px-7 py-3.5 text-sm font-bold text-[#102A4C] transition-all hover:bg-[#102A4C] hover:text-white";
+
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#071321] text-white">
+    <main className="overflow-hidden bg-white text-[#263548]">
 
-      {/* HEADER */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#071321]/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+      {/* HERO */}
+      <section className="relative isolate flex min-h-[650px] items-center overflow-hidden bg-[#F3F6F9]">
+        <div
+          className="absolute inset-0 -z-20 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url(https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=85)",
+          }}
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-white via-white/95 to-white/65" />
 
-          <a href="#home" className="flex items-center">
-            <Image
-              src="/ow-tech-brand.png"
-              alt="OW Tech - Empowering Tomorrows Innovations"
-              width={380}
-              height={123}
-              priority
-              className="h-16 w-auto object-contain"
-            />
-          </a>
-
-          <nav className="hidden items-center gap-9 md:flex">
-            {navigation.map(([label, link]) => (
-              <a
-                key={label}
-                href={link}
-                className="text-sm text-slate-300 transition hover:text-cyan-400"
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
-
-          <a
-            href="#contact"
-            className="hidden rounded-full bg-cyan-400 px-6 py-3 text-sm font-bold text-[#071321] transition hover:bg-white md:inline-block"
-          >
-            Let's Talk →
-          </a>
-
-          <details className="relative md:hidden">
-            <summary className="cursor-pointer list-none rounded-lg border border-white/20 px-4 py-2 text-sm">
-              Menu ☰
-            </summary>
-
-            <div className="absolute right-0 top-12 flex w-48 flex-col gap-4 rounded-xl border border-white/10 bg-[#102438] p-5 shadow-xl">
-              {navigation.map(([label, link]) => (
-                <a
-                  key={label}
-                  href={link}
-                  className="text-sm hover:text-cyan-400"
-                >
-                  {label}
-                </a>
-              ))}
-
-              <a href="#contact" className="text-sm font-bold text-cyan-400">
-                Let's Talk →
-              </a>
-            </div>
-          </details>
-        </div>
-      </header>
-
-      {/* HERO SECTION */}
-      <section id="home" className="relative">
-        <div className="absolute -right-40 top-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px]" />
-
-        <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 py-28 md:grid-cols-2 md:py-36">
-
+        <div className="mx-auto grid w-full max-w-7xl gap-14 px-6 py-24 lg:grid-cols-2 lg:items-center lg:px-10">
           <div>
-            <div className="mb-8 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2">
-              <span className="h-2 w-2 rounded-full bg-cyan-400" />
-              <span className="text-xs font-semibold tracking-[0.2em] text-cyan-300">
-                TECHNOLOGY • CREATIVITY • INNOVATION
-              </span>
-            </div>
+            <SectionLabel>KAMPALA, UGANDA · WORKING WORLDWIDE</SectionLabel>
 
-            <h1 className="max-w-2xl text-5xl font-black leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
-              Building a
-              <span className="block text-cyan-400">Smarter</span>
-              Digital Future.
+            <h1 className="max-w-3xl text-5xl font-bold leading-[1.04] tracking-tight text-[#102A4C] sm:text-6xl lg:text-7xl">
+              Building the{" "}
+              <span className="text-[#64748B]">Digital Future.</span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-lg leading-8 text-slate-400">
-              We transform ideas into practical digital solutions through
-              technology, creative thinking and modern software development.
-            </p>
-
-            <p className="mt-6 text-xs font-bold tracking-[0.25em] text-amber-400">
-              EMPOWERING TOMORROWS INNOVATIONS
+            <p className="mt-8 max-w-xl text-lg leading-8 text-[#586779]">
+              We transform ideas into powerful digital solutions through
+              innovative software development, intelligent technology and
+              modern digital experiences.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="#services"
-                className="rounded-full bg-cyan-400 px-8 py-4 font-bold text-[#071321] transition hover:-translate-y-1 hover:bg-white"
-              >
+              <a href="#services" className={primaryButton}>
                 Explore Our Services →
               </a>
-
-              <a
-                href="#about"
-                className="rounded-full border border-white/20 px-8 py-4 font-semibold transition hover:border-cyan-400 hover:text-cyan-400"
-              >
-                Discover OW Tech
+              <a href="#contact" className={secondaryButton}>
+                Start a Project
               </a>
             </div>
+
+            <p className="mt-10 text-xs font-bold tracking-[0.2em] text-[#718096]">
+              INNOVATION · TECHNOLOGY · TRANSFORMATION
+            </p>
           </div>
 
-          {/* BRAND VISUAL */}
-          <div className="relative mx-auto w-full max-w-lg">
-            <div className="absolute -inset-5 rounded-3xl bg-cyan-400/10 blur-2xl" />
+          <div className="hidden lg:block">
+            <div className="rounded-3xl border border-white bg-white/90 p-8 shadow-xl backdrop-blur">
+              <p className="text-xs font-bold tracking-[0.2em] text-[#64748B]">
+                OW TECHNOLOGIES
+              </p>
+              <h2 className="mt-5 text-3xl font-bold leading-tight text-[#102A4C]">
+                Turning innovative ideas into practical digital solutions.
+              </h2>
 
-            <div className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-[#15344a] to-[#091827] p-8 shadow-2xl sm:p-12">
-
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold tracking-[0.25em] text-cyan-300">
-                  THE OW TECH VISION
-                </span>
-                <span className="text-amber-400">✦</span>
-              </div>
-
-              <div className="py-12 text-center">
-                <Image
-                  src="/ow-tech-brand.png"
-                  alt="OW Tech official branding"
-                  width={500}
-                  height={160}
-                  className="mx-auto h-auto w-full object-contain"
-                />
-
-                <div className="mx-auto mt-7 h-1 w-14 rounded-full bg-amber-400" />
-
-                <p className="mt-6 text-sm leading-7 text-slate-300">
-                  Turning innovative ideas into practical digital solutions.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-3 gap-3">
-                {["CREATE", "INNOVATE", "GROW"].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-lg border border-white/10 bg-white/5 py-3 text-center text-[10px] font-bold tracking-widest text-cyan-300"
-                  >
-                    {item}
+              <div className="mt-8 grid grid-cols-2 gap-3">
+                {[
+                  "Understand the challenge",
+                  "Engineer the solution",
+                  "Deliver with quality",
+                  "Grow with confidence",
+                ].map((item, index) => (
+                  <div key={item} className="rounded-2xl border border-[#E2E8F0] bg-[#F7F9FB] p-5">
+                    <p className="text-2xl font-bold text-[#64748B]">
+                      0{index + 1}
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-[#526174]">
+                      {item}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -193,216 +153,291 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="border-y border-white/10 bg-[#0c1d2d]">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-24 md:grid-cols-2">
-
+      <section id="about" className="py-24 sm:py-28">
+        <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-2 lg:items-center lg:px-10">
           <div>
-            <p className="text-xs font-bold tracking-[0.25em] text-cyan-400">
-              ABOUT OW TECH
-            </p>
-
-            <h2 className="mt-5 max-w-lg text-4xl font-black leading-tight">
-              Technology that works.
-              <span className="text-cyan-400">
-                {" "}Innovation that matters.
-              </span>
+            <SectionLabel>WHO WE ARE</SectionLabel>
+            <h2 className="max-w-xl text-4xl font-bold leading-tight text-[#102A4C] sm:text-5xl">
+              Technology That Moves Businesses Forward.
             </h2>
+            <p className="mt-7 max-w-xl text-lg leading-8 text-[#647184]">
+              OW Technologies is a forward-thinking technology company helping
+              businesses and organisations solve real problems through
+              technology. We combine innovation, creative thinking and
+              practical decisions to deliver solutions that remain useful
+              long after launch.
+            </p>
+            <a href="/about" className={`${secondaryButton} mt-8`}>
+              Get to Know Us →
+            </a>
           </div>
 
-          <div className="space-y-5 text-base leading-8 text-slate-400">
-            <p>
-              OW Tech is an emerging technology and digital solutions
-              initiative focused on helping individuals and businesses make
-              better use of technology.
-            </p>
-
-            <p>
-              We are passionate about practical innovation, accessible digital
-              services and creating solutions that make everyday work easier.
-            </p>
+          <div className="relative min-h-[360px] overflow-hidden rounded-3xl bg-[#E8EDF2] shadow-lg">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage:
+                  "url(https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85)",
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#102A4C]/75 to-transparent" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <p className="text-xs font-bold tracking-[0.2em] text-white/80">
+                TECHNOLOGY WITH PURPOSE
+              </p>
+              <h3 className="mt-2 max-w-sm text-3xl font-bold text-white">
+                Practical innovation, designed around people.
+              </h3>
+            </div>
           </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="mx-auto max-w-7xl px-6 py-28">
+      <section id="services" className="bg-[#F3F6F9] py-24 sm:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <SectionLabel>OUR SERVICES</SectionLabel>
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
+            <h2 className="max-w-2xl text-4xl font-bold leading-tight text-[#102A4C] sm:text-5xl">
+              What We Build, and What It Fixes.
+            </h2>
+            <p className="max-w-xl leading-8 text-[#647184]">
+              We bring practical technology capabilities to the processes and
+              challenges that matter to your organisation.
+            </p>
+          </div>
 
-        <div className="mb-14 text-center">
-          <p className="text-xs font-bold tracking-[0.25em] text-cyan-400">
-            WHAT WE DO
-          </p>
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {services.map(([number, title, description]) => (
+              <article key={number} className="rounded-2xl border border-[#E0E6ED] bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <p className="text-sm font-bold text-[#718096]">{number}</p>
+                <h3 className="mt-6 text-2xl font-bold text-[#102A4C]">{title}</h3>
+                <p className="mt-4 leading-7 text-[#687789]">{description}</p>
+                <a href="/services" className="mt-7 inline-flex text-sm font-bold text-[#294D73] hover:text-[#64748B]">
+                  DISCUSS THIS SERVICE →
+                </a>
+              </article>
+            ))}
+          </div>
 
-          <h2 className="mt-4 text-4xl font-black">
-            Our Services
-          </h2>
-
-          <p className="mx-auto mt-4 max-w-xl leading-7 text-slate-400">
-            Practical digital services designed to support people,
-            organisations and growing businesses.
-          </p>
+          <div className="mt-10">
+            <a href="/services" className={primaryButton}>View All Services →</a>
+          </div>
         </div>
+      </section>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
-            <div
-              key={service.number}
-              className="group rounded-2xl border border-white/10 bg-[#102438] p-7 transition duration-300 hover:-translate-y-2 hover:border-cyan-400/50 hover:bg-[#143047]"
-            >
-              <div className="text-4xl text-cyan-400">
-                {service.icon}
-              </div>
+      {/* WHY CHOOSE US */}
+      <section className="py-24 sm:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <SectionLabel>WHY OW TECHNOLOGIES</SectionLabel>
+          <h2 className="max-w-3xl text-4xl font-bold leading-tight text-[#102A4C] sm:text-5xl">
+            Why Organisations Choose to Build With Us.
+          </h2>
+          <p className="mt-6 max-w-2xl leading-8 text-[#647184]">
+            We focus on the principles that make technology projects useful,
+            reliable and sustainable.
+          </p>
 
-              <p className="mt-8 text-xs font-bold text-amber-400">
-                {service.number}
-              </p>
-
-              <h3 className="mt-3 text-xl font-bold">
-                {service.title}
-              </h3>
-
-              <p className="mt-4 text-sm leading-7 text-slate-400">
-                {service.description}
-              </p>
-
-              <a
-                href="#contact"
-                className="mt-7 inline-block text-sm font-bold text-cyan-400 transition group-hover:text-white"
-              >
-                Learn more →
-              </a>
-            </div>
-          ))}
+          <div className="mt-14 grid gap-x-12 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+            {reasons.map(([number, title, description]) => (
+              <article key={number} className="border-t border-[#D8E0E8] pt-6">
+                <p className="text-sm font-bold text-[#718096]">{number}</p>
+                <h3 className="mt-4 text-2xl font-bold text-[#102A4C]">{title}</h3>
+                <p className="mt-3 leading-7 text-[#687789]">{description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* PROJECTS */}
-      <section id="projects" className="border-y border-white/10 bg-[#0c1d2d]">
-        <div className="mx-auto max-w-7xl px-6 py-28">
+      <section id="projects" className="bg-[#F3F6F9] py-24 sm:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <SectionLabel>SELECTED WORK</SectionLabel>
+          <h2 className="max-w-3xl text-4xl font-bold leading-tight text-[#102A4C] sm:text-5xl">
+            Digital Solutions Built Around Real Challenges.
+          </h2>
+          <p className="mt-6 max-w-2xl leading-8 text-[#647184]">
+            Explore our work and solution concepts, each focused on solving
+            practical operational challenges.
+          </p>
 
-          <div className="mb-14">
-            <p className="text-xs font-bold tracking-[0.25em] text-cyan-400">
-              OUR WORK
-            </p>
-
-            <h2 className="mt-4 text-4xl font-black">
-              Featured Project
-            </h2>
+          <div className="mt-14 grid gap-7 lg:grid-cols-3">
+            {projects.map((project) => (
+              <article key={project.number} className="overflow-hidden rounded-2xl border border-[#E0E6ED] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <div className="relative h-52 overflow-hidden bg-[#DCE4EC]">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition duration-500 hover:scale-105"
+                    style={{ backgroundImage: `url(${project.image})` }}
+                  />
+                </div>
+                <div className="p-7">
+                  <p className="text-xs font-bold tracking-[0.16em] text-[#718096]">{project.category}</p>
+                  <h3 className="mt-4 text-2xl font-bold text-[#102A4C]">{project.name}</h3>
+                  <p className="mt-4 leading-7 text-[#687789]">{project.description}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="rounded-full border border-[#DCE3EA] bg-[#F7F9FB] px-3 py-1.5 text-xs text-[#526174]">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
 
-          <div className="grid overflow-hidden rounded-3xl border border-white/10 bg-[#102438] md:grid-cols-2">
+          <div className="mt-10">
+            <a href="/projects" className={primaryButton}>Explore Projects →</a>
+          </div>
+        </div>
+      </section>
 
-            <div className="flex min-h-80 items-center justify-center bg-gradient-to-br from-cyan-500/20 to-blue-900/30 p-10">
-              <div className="text-center">
-                <div className="text-6xl font-black">
-                  R<span className="text-cyan-400">S</span>
-                </div>
+      {/* INDUSTRIES */}
+      <section id="industries" className="py-24 sm:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <SectionLabel>INDUSTRIES WE SERVE</SectionLabel>
+          <h2 className="max-w-3xl text-4xl font-bold leading-tight text-[#102A4C] sm:text-5xl">
+            Built for the Way Your Sector Actually Works.
+          </h2>
+          <p className="mt-6 max-w-2xl leading-8 text-[#647184]">
+            Every industry has its own records, processes and reporting
+            requirements. We build around those differences.
+          </p>
 
-                <p className="mt-4 text-sm font-bold tracking-[0.3em] text-slate-300">
-                  REPORTSPHERE
-                </p>
+          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {industries.map(([number, title, description]) => (
+              <article key={number} className="rounded-2xl border border-[#E0E6ED] bg-white p-8 shadow-sm">
+                <p className="text-sm font-bold text-[#718096]">{number}</p>
+                <h3 className="mt-6 text-2xl font-bold text-[#102A4C]">{title}</h3>
+                <p className="mt-4 leading-7 text-[#687789]">{description}</p>
+              </article>
+            ))}
+          </div>
 
-                <p className="mt-2 text-xs text-slate-400">
-                  SCHOOL MANAGEMENT TECHNOLOGY
-                </p>
-              </div>
-            </div>
+          <div className="mt-9">
+            <a href="/industries" className={secondaryButton}>Explore Industries →</a>
+          </div>
+        </div>
+      </section>
 
-            <div className="p-10 md:p-14">
-              <span className="text-xs font-bold tracking-widest text-cyan-400">
-                EDUCATION TECHNOLOGY
-              </span>
+      {/* OUR APPROACH */}
+      <section id="approach" className="bg-[#F3F6F9] py-24 sm:py-28">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <SectionLabel>OUR APPROACH</SectionLabel>
+          <h2 className="max-w-3xl text-4xl font-bold leading-tight text-[#102A4C] sm:text-5xl">
+            A Repeatable Way of Working, From First Conversation to Launch.
+          </h2>
+          <p className="mt-6 max-w-2xl leading-8 text-[#647184]">
+            Every engagement follows four stages, so you know what is
+            happening, what comes next and what we need from your team.
+          </p>
 
-              <h3 className="mt-5 text-3xl font-black">
-                ReportSphere
-              </h3>
-
-              <p className="mt-5 leading-8 text-slate-400">
-                A school report management platform designed to simplify
-                academic reporting, manage student performance and improve
-                communication between schools and parents.
-              </p>
-
-              <div className="mt-7 flex flex-wrap gap-2">
-                {["Python", "FastAPI", "SQL", "Next.js"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2 text-xs text-cyan-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+          <div className="mt-14 grid gap-9 md:grid-cols-2 lg:grid-cols-4">
+            {process.map(([number, title, description]) => (
+              <article key={number} className="border-t-2 border-[#9AAABD] pt-6">
+                <p className="text-3xl font-bold text-[#64748B]">{number}</p>
+                <h3 className="mt-5 text-2xl font-bold text-[#102A4C]">{title}</h3>
+                <p className="mt-3 leading-7 text-[#687789]">{description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="mx-auto max-w-7xl px-6 py-28">
-
-        <div className="relative overflow-hidden rounded-3xl border border-cyan-400/20 bg-gradient-to-br from-[#12354a] to-[#0b1b2b] px-8 py-16 text-center sm:px-16">
-
-          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
-
-          <div className="relative">
-            <p className="text-xs font-bold tracking-[0.25em] text-cyan-400">
-              LET'S BUILD SOMETHING
-            </p>
-
-            <h2 className="mx-auto mt-5 max-w-2xl text-4xl font-black sm:text-5xl">
-              Have an idea? Let's make it happen.
+      <section id="contact" className="bg-white py-24 sm:py-28">
+        <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-2 lg:px-10">
+          <div>
+            <SectionLabel>START A CONVERSATION</SectionLabel>
+            <h2 className="max-w-xl text-4xl font-bold leading-tight text-[#102A4C] sm:text-5xl">
+              Have an Idea? Let&apos;s Build Something Great.
             </h2>
-
-            <p className="mx-auto mt-6 max-w-xl leading-8 text-slate-400">
-              Connect with OW Tech and let's explore how technology can help
-              bring your ideas to life.
+            <p className="mt-7 max-w-xl text-lg leading-8 text-[#647184]">
+              Partner with OW Technologies to turn your vision into a
+              practical digital solution. Send us a short brief and we will
+              discuss the scope and next steps.
             </p>
 
-            <div className="mt-9 flex flex-wrap justify-center gap-4">
-              <a
-                href="https://wa.me/256746320144"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-cyan-400 px-8 py-4 font-bold text-[#071321] transition hover:bg-white"
-              >
-                Chat on WhatsApp →
-              </a>
+            <ul className="mt-8 space-y-3 text-[#526174]">
+              <li>✓ A reply within one business day.</li>
+              <li>✓ A 30-minute call, with no obligation.</li>
+              <li>✓ NDA signed on request.</li>
+            </ul>
 
-              <a
-                href="mailto:edrinejunior256@gmail.com"
-                className="rounded-full border border-white/20 px-8 py-4 font-bold transition hover:border-cyan-400 hover:text-cyan-400"
-              >
-                Send an Email
-              </a>
+            <div className="mt-10 space-y-5 border-t border-[#E0E6ED] pt-7">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-[#718096]">Email</p>
+                <a href="mailto:edrinejunior256@gmail.com" className="mt-1 inline-block text-lg text-[#102A4C] hover:underline">
+                  edrinejunior256@gmail.com
+                </a>
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-[#718096]">Phone</p>
+                <a href="tel:+256746320144" className="mt-1 inline-block text-lg text-[#102A4C] hover:underline">
+                  +256 746 320 144
+                </a>
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-[#718096]">Location</p>
+                <p className="mt-1 text-lg text-[#526174]">Kampala, Uganda</p>
+              </div>
             </div>
+          </div>
+
+          <div className="rounded-3xl border border-[#E0E6ED] bg-[#F5F7FA] p-7 shadow-sm sm:p-9">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#718096]">
+              TELL US ABOUT YOUR PROJECT
+            </p>
+            <h3 className="mt-4 text-3xl font-bold text-[#102A4C]">
+              Let&apos;s Start With a Conversation.
+            </h3>
+
+            <form
+              action="mailto:edrinejunior256@gmail.com"
+              method="post"
+              encType="text/plain"
+              className="mt-8 space-y-5"
+            >
+              <div>
+                <label htmlFor="name" className="mb-2 block text-sm font-semibold text-[#526174]">Your Name</label>
+                <input id="name" name="Name" type="text" required placeholder="Enter your name" className="w-full rounded-xl border border-[#D8E0E8] bg-white px-4 py-3.5 text-[#263548] outline-none placeholder:text-[#9AA5B1] focus:border-[#526B89]" />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="mb-2 block text-sm font-semibold text-[#526174]">Work Email</label>
+                <input id="email" name="Email" type="email" required placeholder="you@company.com" className="w-full rounded-xl border border-[#D8E0E8] bg-white px-4 py-3.5 text-[#263548] outline-none placeholder:text-[#9AA5B1] focus:border-[#526B89]" />
+              </div>
+
+              <div>
+                <label htmlFor="subject" className="mb-2 block text-sm font-semibold text-[#526174]">What Is It About?</label>
+                <select id="subject" name="Project Type" required defaultValue="" className="w-full rounded-xl border border-[#D8E0E8] bg-white px-4 py-3.5 text-[#263548] outline-none focus:border-[#526B89]">
+                  <option value="" disabled>Select a service</option>
+                  <option>Custom software development</option>
+                  <option>Web application development</option>
+                  <option>Website design and development</option>
+                  <option>Business automation</option>
+                  <option>IT consulting</option>
+                  <option>Digital transformation</option>
+                  <option>Other enquiry</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="mb-2 block text-sm font-semibold text-[#526174]">What Are You Trying to Fix?</label>
+                <textarea id="message" name="Message" rows={5} required placeholder="Tell us a little about your project..." className="w-full resize-y rounded-xl border border-[#D8E0E8] bg-white px-4 py-3.5 text-[#263548] outline-none placeholder:text-[#9AA5B1] focus:border-[#526B89]" />
+              </div>
+
+              <button type="submit" className={`${primaryButton} w-full`}>
+                Send Inquiry →
+              </button>
+              <p className="text-center text-xs leading-5 text-[#8793A1]">
+                This enquiry form opens your email application to send your message.
+              </p>
+            </form>
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-white/10 bg-[#050e18]">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 px-6 py-10 sm:flex-row sm:items-center">
-
-          <div>
-            <Image
-              src="/ow-tech-brand.png"
-              alt="OW Tech"
-              width={380}
-              height={123}
-              className="h-16 w-auto object-contain"
-            />
-
-            <p className="mt-2 text-xs text-slate-500">
-              Empowering tomorrows innovations.
-            </p>
-          </div>
-
-          <p className="text-xs text-slate-500">
-            © 2026 OW Tech. All rights reserved.
-          </p>
-        </div>
-      </footer>
-
     </main>
   );
 }
