@@ -1,6 +1,31 @@
 ﻿
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Our Projects & Software Portfolio | OW Technologies",
+  description:
+    "Explore OW Technologies projects and digital innovations, including ReportSphere, OW Bet Intelligence and business web solutions. Discover practical software solutions developed in Uganda.",
+  keywords: [
+    "OW Technologies projects",
+    "OW Tech portfolio",
+    "software development portfolio Uganda",
+    "ReportSphere",
+    "OW Bet Intelligence",
+    "business web solutions",
+    "software projects",
+    "digital innovation Uganda",
+  ],
+  openGraph: {
+    title: "Our Projects & Software Portfolio | OW Technologies",
+    description:
+      "Discover software projects, business applications and digital solutions being developed by OW Technologies.",
+    url: "https://ow-tech-website.vercel.app/projects",
+    siteName: "OW Technologies",
+    type: "website",
+  },
+};
 
 const projects = [
   {

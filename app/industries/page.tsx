@@ -1,6 +1,31 @@
 ﻿
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Industries We Serve | OW Technologies",
+  description:
+    "Discover how OW Technologies supports education, healthcare, finance, retail, professional services and logistics with practical software and digital solutions in Uganda and worldwide.",
+  keywords: [
+    "OW Technologies industries",
+    "software solutions for education",
+    "healthcare digital solutions",
+    "business software Uganda",
+    "retail and e-commerce solutions",
+    "professional services technology",
+    "logistics management software",
+    "digital solutions Uganda",
+  ],
+  openGraph: {
+    title: "Industries We Serve | OW Technologies",
+    description:
+      "Practical software and digital solutions for education, healthcare, finance, retail, professional services and logistics organisations.",
+    url: "https://ow-tech-website.vercel.app/industries",
+    siteName: "OW Technologies",
+    type: "website",
+  },
+};
 
 const industries = [
   {

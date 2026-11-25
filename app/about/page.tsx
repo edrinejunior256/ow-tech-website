@@ -1,6 +1,21 @@
 ﻿
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About OW Technologies | Our Company and Approach",
+  description:
+    "Learn about OW Technologies, a Uganda-based technology company delivering practical software development, web applications and digital solutions for organisations in Uganda and worldwide.",
+  openGraph: {
+    title: "About OW Technologies | Our Company and Approach",
+    description:
+      "Discover our mission, vision, values and approach to building practical digital solutions.",
+    url: "https://ow-tech-website.vercel.app/about",
+    siteName: "OW Technologies",
+    type: "website",
+  },
+};
 
 const principles = [
   {

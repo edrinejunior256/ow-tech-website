@@ -1,5 +1,38 @@
 
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
+
+export const metadata: Metadata = {
+  title: "OW Technologies | Software & Digital Solutions",
+  description:
+    "OW Technologies delivers custom software development, web applications, website design, business automation and IT solutions for businesses and organisations in Uganda and worldwide.",
+  keywords: [
+    "OW Technologies",
+    "OW Tech",
+    "software development company Uganda",
+    "custom software development",
+    "web application development",
+    "website design and development",
+    "business automation",
+    "IT consulting",
+    "digital solutions",
+    "software developers in Uganda",
+  ],
+  openGraph: {
+    title: "OW Technologies | Software & Digital Solutions",
+    description:
+      "Practical software, web and digital solutions for businesses and organisations in Uganda and worldwide.",
+    url: "https://ow-tech-website.vercel.app",
+    siteName: "OW Technologies",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "OW Technologies | Software & Digital Solutions",
+    description:
+      "Custom software, web applications, business automation and IT solutions for clients in Uganda and worldwide.",
+  },
+};
 
 const services = [
   ["01", "Custom Software Development", "Systems built around how your organisation actually runs, for processes no off-the-shelf package fits."],
@@ -69,13 +102,11 @@ function SectionLabel({ children }: { children: ReactNode }) {
   );
 }
 
-
 const primaryButton =
   "inline-flex items-center justify-center rounded-full bg-[#2563EB] px-7 py-3.5 text-sm font-bold text-white shadow-md transition-all hover:bg-[#1746B5] hover:shadow-lg";
 
 const secondaryButton =
   "inline-flex items-center justify-center rounded-full border-2 border-[#102A4C] bg-white px-7 py-3.5 text-sm font-bold text-[#102A4C] transition-all hover:bg-[#102A4C] hover:text-white";
-
 
 export default function Home() {
   return (

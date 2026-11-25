@@ -1,6 +1,32 @@
 ﻿
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Software Development & IT Services | OW Technologies",
+  description:
+    "Explore OW Technologies services, including custom software development, web applications, website design, business automation, IT consulting and digital transformation in Uganda and worldwide.",
+  keywords: [
+    "OW Technologies services",
+    "software development Uganda",
+    "custom software development",
+    "web application development",
+    "website design Uganda",
+    "business automation",
+    "IT consulting Uganda",
+    "digital transformation",
+    "technology solutions",
+  ],
+  openGraph: {
+    title: "Software Development & IT Services | OW Technologies",
+    description:
+      "Custom software, web applications, professional websites, business automation and practical technology solutions for organisations in Uganda and worldwide.",
+    url: "https://ow-tech-website.vercel.app/services",
+    siteName: "OW Technologies",
+    type: "website",
+  },
+};
 
 const services = [
   {

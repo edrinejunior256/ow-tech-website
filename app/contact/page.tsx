@@ -1,6 +1,32 @@
 ﻿
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Contact OW Technologies | Start a Project",
+  description:
+    "Contact OW Technologies in Kampala, Uganda, to discuss custom software development, website design, business automation, IT consulting or your next digital project. We work with clients in Uganda and worldwide.",
+  keywords: [
+    "contact OW Technologies",
+    "OW Tech contact",
+    "software development company Kampala",
+    "software developers Uganda",
+    "website design Uganda",
+    "IT consulting Uganda",
+    "custom software development",
+    "business automation services",
+    "start a software project",
+  ],
+  openGraph: {
+    title: "Contact OW Technologies | Start a Project",
+    description:
+      "Have a project or technology challenge? Get in touch with OW Technologies in Kampala, Uganda, and let's explore practical digital solutions.",
+    url: "https://ow-tech-website.vercel.app/contact",
+    siteName: "OW Technologies",
+    type: "website",
+  },
+};
 
 const contactDetails = [
   {
