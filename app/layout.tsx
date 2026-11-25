@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "OW Technologies | Digital Solutions & Innovation",
   description:
     "OW Technologies builds practical digital solutions through custom software, web applications, business automation and digital transformation.",
+  verification: {
+    google: "uHaPl6gcnOouSWjcE2cEaoC02BolSiRph9OQCJYh4us",
+  },
 };
 
 export default function RootLayout({
