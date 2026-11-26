@@ -3,34 +3,43 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "OW Technologies | Software & Digital Solutions",
+  title: {
+    absolute:
+      "OW Technologies | Software Development Company in Kampala, Uganda",
+  },
+
   description:
-    "OW Technologies delivers custom software development, web applications, website design, business automation and IT solutions for businesses and organisations in Uganda and worldwide.",
+    "OW Technologies is a Kampala, Uganda-based software development company providing custom software, web applications, professional website design, business automation and IT consulting for businesses in Uganda and worldwide.",
+
   keywords: [
     "OW Technologies",
-    "OW Tech",
+    "OW Technologies Kampala Uganda",
     "software development company Uganda",
-    "custom software development",
-    "web application development",
-    "website design and development",
-    "business automation",
-    "IT consulting",
-    "digital solutions",
-    "software developers in Uganda",
+    "software developers Kampala",
+    "custom software development Uganda",
+    "web application development Uganda",
+    "website design Uganda",
+    "business automation Uganda",
+    "IT consulting Kampala",
+    "digital solutions Uganda",
   ],
+
   openGraph: {
-    title: "OW Technologies | Software & Digital Solutions",
+    title:
+      "OW Technologies | Software Development Company in Kampala, Uganda",
     description:
-      "Practical software, web and digital solutions for businesses and organisations in Uganda and worldwide.",
-    url: "https://ow-tech-website.vercel.app",
+      "Custom software development, web applications, website design, business automation and IT solutions from Kampala, Uganda.",
+    url: "https://ow-tech-website.vercel.app/",
     siteName: "OW Technologies",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "OW Technologies | Software & Digital Solutions",
+    title:
+      "OW Technologies | Software Development Company in Kampala, Uganda",
     description:
-      "Custom software, web applications, business automation and IT solutions for clients in Uganda and worldwide.",
+      "Custom software, web applications, business automation and IT consulting from Kampala, Uganda.",
   },
 };
 
